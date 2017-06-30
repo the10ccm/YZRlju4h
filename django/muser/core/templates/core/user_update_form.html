@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="main-content">
+  <div class="create-content">
+    <h2>User '{{ username }}'</h2>
+    <ul>
+      <form action="." method="post">
+        {% csrf_token %}
+        {{ form.non_form_errors }}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'user_delete' pk %}"
+              type="button" class="btn btn-danger">Delete</a>
+        <a href='/' type="button" class="btn btn-default">Cancel</a>
+      </form>
+    </ul>
+  </div>
+</div>
+{% endblock %}

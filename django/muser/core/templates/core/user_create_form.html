@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="main-content">
+  <div class="create-content">
+    <h2>Create User</h2>
+    <ul>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ formset.non_form_errors }}
+            {{ form.non_form_errors }}
+            {{form|crispy}}
+            {{formset|crispy}}
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href='/' type="button" class="btn btn-default">Cancel</a>
+        </form>
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+{% load user_tags %}
+
+{% block content %}
+<div class="main-content">
+  <div class="list-content">
+    <h2>Users</h2>
+    <a href="{% url 'user_create' %}"
+       type="button" class="btn btn-default">Create User</a>
+    <div class="panel panel-default">
+      <table class="table">
+        <tr>
+          <th>Username</th>
+          <th>Birthday</th>
+          <th>Eligible</th>
+          <th>Random Number</th>
+          <th>BizzFuzz</th>
+          <th></th>
+        <tr>
+        {% for user in users %}
+          </tr>
+            <td><a href="{% url 'user_update' user.profile.pk %}">
+              {{ user.username }}</a></td>
+            <td>{{ user.profile.birthday}}</td>
+            <td>{% is_allowed_by_birthday user.profile.birthday %}</td>
+            <td>{{ user.profile.bizzfuzz_number }}</td>
+            <td>{% bizzfuzz user.profile.bizzfuzz_number %}</td>
+            <td></td>
+            <td>
+              <a href="{% url 'user_update' user.profile.pk %}"
+              type="button" class="btn btn-primary">Update</a>
+              <a href="{% url 'user_delete' user.profile.pk %}"
+              type="button" class="btn btn-danger">Delete</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

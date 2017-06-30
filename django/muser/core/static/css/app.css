@@ -1,0 +1,21 @@
+
+.main-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.list-content {
+    padding-top: 30px;
+    width: 800px;
+    margin: auto;
+}
+
+.create-content {
+    padding-top: 30px;
+    width: 800px;
+    margin: auto;
+}
+
+.panel {
+    margin-top: 20px;
+}
